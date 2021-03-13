@@ -19,7 +19,8 @@ arp -a | findstr 00-13-ef-40-09-27
 1. Stworzyć folder `.ssh` w katalogu home
 2. Perzekopiować klucz ssh (powershell)
  ```powershell
- type $env:USERPROFILE\.ssh\id_rsa.pub | ssh pi@$env:ULN_MONITOR_IP "cat >> .ssh/authorized_keys"
+ ssh pi@<IP> "mkdir .ssh"
+ type $env:USERPROFILE\.ssh\id_rsa.pub | ssh pi@<IP> "cat >> .ssh/authorized_keys"
  ```
 folder `.ssh` może nie istnieć, stedy trzeba go stworzyć
 
