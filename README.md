@@ -1,4 +1,4 @@
-# raspbian-manual
+# Raspbian manual
 
 
 ## card flashing
