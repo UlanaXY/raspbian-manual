@@ -15,6 +15,9 @@ network={
 }
 ```
 
+Kopia zapasowa karty SD:
+[Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
+
 ## Pierwsze podłączenie
 ### znajdowanie raspberry w sieci
 bo adresie mac Pi
@@ -32,11 +35,32 @@ arp -a | findstr 00-13-ef-40-09-27
    1. Strefa czasowa
    2. Włączenie interfejsów GPIO
    3. update
-   4. reboot by wdrożyć zmiany `sudo reboot`
+   4. reboot, by wdrożyć zmiany `sudo reboot`
 
+### Venv
+Tworzenie
+```bash
+python3 -m venv "/home/pi/nazwaProjektu/venv"
+```
+Aktywacja linux:
+```
+source nazwaProjektu/venv/bin/activate
+```
+Aktywacja Windows:
+```
+# In cmd.exe
+nazwaProjektu\venv\Scripts\activate.bat
+# In PowerShell
+nazwaProjektu\venv\Scripts\Activate.ps1
+```
+Dezaktywacja:
+```
+deactivate
+```
 
+### Network fixes
 
-### Netis WF2120 fix
+#### Netis WF2120 fix
 Add to `/etc/network/interfaces` this fragment:
 ```
 auto lo
