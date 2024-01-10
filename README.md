@@ -41,6 +41,8 @@ arp -a | findstr 00-13-ef-40-09-27
 Tworzenie
 ```bash
 python3 -m venv "/home/pi/nazwaProjektu/venv"
+# or
+python3 -m venv ./venv
 ```
 Aktywacja linux:
 ```
