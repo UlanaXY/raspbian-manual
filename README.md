@@ -31,6 +31,10 @@ arp -a | findstr 00-13-ef-40-09-27
 
 ## Konfiguracja
 1. Uruchomienie skryptu (shh, passwd, apt update/upgrade)
+   ```powershell
+   cd ./raspbian-manual
+   ./setup.ps1
+   ```
 2. raspi-config  `sudo raspi-config`
    1. Strefa czasowa
    2. Włączenie interfejsów GPIO
