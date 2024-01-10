@@ -19,8 +19,13 @@ $PUBLIC_KEY = op read "op://Personal/raspberry_key/public key"
 
 Write-Output $PUBLIC_KEY  | ssh pi@$PI_IP "mkdir .ssh ; cat >> .ssh/authorized_keys"
 
-Write-Output "Change root password"
-ssh pi@$PI_IP "passwd"
+$SHOUL_PASSWD = Read-Host "should run passwd? (y/n)"
+if ( "y" -eq $SHOUL_PASSWD )
+{
+  Write-Output "Change root password"
+  ssh pi@$PI_IP "passwd"
+}
+
 Write-Output "Copied files:"
 scp ./rasbian_setup.sh pi@${PI_IP}:~/rasbian_setup.sh
 
