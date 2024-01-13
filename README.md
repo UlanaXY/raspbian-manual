@@ -120,3 +120,25 @@ wifi.scan-rand-mac-address=no
    ```bash
    sudo systemctl enable nazwa-projektu.service
    ```
+
+## Przydatne
+
+Freeze packages
+```bash
+pip freeze | grep -v "pkg-resources" > requirements.txt
+```
+
+## systemctl
+status
+```bash
+sudo systemctl status <service-name>.service
+```
+Logs:
+```bash
+journalctl -u <service-name>
+```
+Logs for the current boot:
+```bash
+journalctl -b -u <service-name>
+```
+
