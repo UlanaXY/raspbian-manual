@@ -65,6 +65,49 @@ deactivate
 ```
 
 ### Network fixes
+#### Static IP
+1. **Determine your Raspberry PI's current IP v4 address** if you don't already know it. \
+   The easiest way to do this is by using the hostname -I command at the command prompt. \
+   If you know its hostname, you can also ping the Pi from a different computer on the network.
+   ```
+   hostname -I
+   ```
+2. **Get your router's IP address** if you don't already know it. \
+   The easiest way to do this is to use the command ip r and take the address that appears after "default via."
+   ```
+   ip r
+   ```
+3. **Get the IP address of your DNS** (domain name server) by enter the command below. \
+   This may or may not be the same as your router's IP.
+   ```
+   grep "nameserver" /etc/resolv.conf
+   ```
+4. **Open /etc/dhcpcd.conf** for editing in nano.
+   ```
+   nano /etc/dhcpcd.conf
+   ```
+5. **Add the following lines** to the bottom of the file. \
+   If such lines already exist and are not commented out, remove them.
+
+   Replace the comments in brackets in the box below with the correct information. \
+   Interface will be either wlan0 for Wi-Fi or eth0 for Ethernet.
+   ```
+   interface [INTERFACE]
+   static_routers=[ROUTER IP]
+   static domain_name_servers=[DNS IP]
+   static ip_address=[STATIC IP ADDRESS YOU WANT]/24
+   ```
+   In our case, it looked like this.
+   ```
+   interface wlan0
+   static_routers=192.168.0.1
+   static domain_name_servers=62.179.1.61 62.179.1.63
+   static ip_address=192.168.0.48/24
+   ```
+   You may wish to substitute "inform" for "static" on the last line. \
+   Using inform means that the Raspberry Pi will attempt to get the IP address you requested, \
+   but if it's not available, it will choose another. If you use static, it will have no IP v4 address at all if the requested one is in use.
+6. Save the file and reboot.
 
 #### Netis WF2120 fix
 Add to `/etc/network/interfaces` this fragment:
