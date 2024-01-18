@@ -107,7 +107,7 @@ deactivate
    You may wish to substitute "inform" for "static" on the last line. \
    Using inform means that the Raspberry Pi will attempt to get the IP address you requested, \
    but if it's not available, it will choose another. If you use static, it will have no IP v4 address at all if the requested one is in use.
-6. Save the file and reboot.
+6. **Save the file and reboot.**
 
 #### Netis WF2120 fix
 Add to `/etc/network/interfaces` this fragment:
