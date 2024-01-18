@@ -66,6 +66,10 @@ deactivate
 
 ### Network fixes
 #### Static IP
+
+Poniżej jest dosyć prosta instrukcja, a [tu](https://raspberrypi.stackexchange.com/questions/37920/how-do-i-set-up-networking-wifi-static-ip-address-on-raspbian-raspberry-pi-os/37921#37921)
+jest inny bardziej kompleksowy poradnik
+
 1. **Determine your Raspberry PI's current IP v4 address** if you don't already know it. \
    The easiest way to do this is by using the hostname -I command at the command prompt. \
    If you know its hostname, you can also ping the Pi from a different computer on the network.
